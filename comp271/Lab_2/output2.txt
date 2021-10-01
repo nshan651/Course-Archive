@@ -1,0 +1,24 @@
+Roll call
+This is This is Huey the elephant weighing 505.2 kg
+This is This is Dewey the elephant weighing 612.9 kg
+This is This is Alex the tiger weighing 200.0 kg
+This is This is Mickey the mouse weighing 10.0 kg
+
+Ready for feeding
+Today we used 121.91 kg of food
+
+Ready to check weight
+This is This is Huey the elephant weighing 555.72 kg
+This is This is Dewey the elephant weighing 674.19 kg
+This is This is Alex the tiger weighing 210.0 kg
+This is This is Mickey the mouse weighing 10.1 kg
+
+Ready to work out
+
+Ready to check weight
+This is This is Huey the elephant weighing 505.2 kg
+This is This is Dewey the elephant weighing 612.9 kg
+This is This is Alex the tiger weighing 200.0 kg
+This is This is Mickey the mouse weighing 10.0 kg
+
+Process finished with exit code 0
