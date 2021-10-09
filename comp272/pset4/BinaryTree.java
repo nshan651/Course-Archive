@@ -7,7 +7,7 @@ public class BinaryTree<E> {
     
     public BinaryTree () {
         size =0;
-         root=null;
+        root=null;
     }
     
     
