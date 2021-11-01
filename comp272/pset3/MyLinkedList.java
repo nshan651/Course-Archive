@@ -1,3 +1,4 @@
+package pset3;
 import java.util.*;
 
 public class MyLinkedList<E>    {
@@ -107,8 +108,7 @@ public class MyLinkedList<E>    {
               temp.getPrev().setNext(temp.getNext());
               temp.getNext().setPrev(temp.getPrev());
               size--;
-              return val;
-                
+              return val;   
             }
         }
         else throw new IndexOutOfBoundsException(); }

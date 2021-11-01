@@ -1,4 +1,4 @@
-package pset0;
+package pset1;
 import java.util.Random;
 
 // This includes additional code not in the text that keeps

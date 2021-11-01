@@ -1,4 +1,4 @@
-package pset1;
+package pset2;
 import java.util.LinkedList;
 import java.math.*;
 

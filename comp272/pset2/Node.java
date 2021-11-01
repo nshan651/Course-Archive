@@ -1,4 +1,4 @@
-package pset1;
+package pset2;
 /* Node class used for linkage */
 public class Node<E>{
     E info;

@@ -1,4 +1,4 @@
-
+package pset3;
 public class Node<E> // E is any object type
 {
     E info;
