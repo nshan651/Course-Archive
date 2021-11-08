@@ -90,9 +90,9 @@ public class Selection<E extends Comparable<E>> {
     }
 
     public static void benchmark() {
-        ArrayList<Integer> longList = new ArrayList<>(10000000);
-        int k=100000;
-        for(int i =0;i<1000000;i++){
+        ArrayList<Integer> longList = new ArrayList<>(100000000);
+        int k=1000000;
+        for(int i =0;i<10000000;i++){
             longList.add((int) Math.floor(Math.random() * (1000)));
         }
         
