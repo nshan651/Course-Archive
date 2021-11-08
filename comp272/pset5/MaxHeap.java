@@ -37,7 +37,7 @@ public class MaxHeap<E extends Comparable<E>> extends ArrayList<E>   {
             heapify(i, heap.size());
     }
 
-    /* Helper method to adjust values up to the root to ensure max heap */
+    /* Helper method to adjust values down from the root to ensure max heap */
     private void heapify(int i, int len) {
         int max = i; // Initialize max as root
         int left = (2*i) + 1 ; // left = 2*i + 1
