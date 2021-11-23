@@ -35,10 +35,9 @@ public class WeightedEdge implements Comparable<WeightedEdge>
         
        return ("("+v1+","+v2+")"+weight); 
         
-    }
+    }    
     
-    
-    
+/*
 public static void main(String[] args) {
     List<WeightedEdge> alw = new ArrayList<>();
     alw.add(new WeightedEdge(0,1,12));
@@ -49,26 +48,15 @@ public static void main(String[] args) {
         PriorityQueue<WeightedEdge> pq = new PriorityQueue<>(alw);
         System.out.println(pq.peek());
         
-       /* Comparator<WeightedEdge> crp = Comparator.comparingDouble(WeightedEdge::getWeight);
+        Comparator<WeightedEdge> crp = Comparator.comparingDouble(WeightedEdge::getWeight);
         Collections.sort(alw,crp);
         System.out.println(alw);
         
         crp= crp.reversed();
         Collections.sort(alw,crp);
-        System.out.println(alw);*/
+        System.out.println(alw);
         
-        
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    
-    
 }
+*/
     
 }

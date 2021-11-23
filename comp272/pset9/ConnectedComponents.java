@@ -6,11 +6,9 @@ public class ConnectedComponents {
     ArrayList<MyLinkedList<Integer>> vertexSet;
     int[] parent;
     static int numVertex;
-    static int numEdge;
 
-    public ConnectedComponents(int vertices, int edges) {
+    public ConnectedComponents(int vertices) {
         numVertex = vertices;
-        numEdge = edges;
         parent = new int[numVertex];
         vertexSet = new ArrayList<>(numVertex);
 
@@ -23,37 +21,39 @@ public class ConnectedComponents {
         }
     }
 
-    public void shiftComponents (MyLinkedList<Integer> minSet, int max) {
-        System.out.println("minSet size " + minSet.size());
-        // Shift components
-        if (!minSet.isEmpty()) {
-            Node<Integer> n = minSet.getFirst();
-            do {
-                parent[n.getInfo()] = max;
-                n = n.getNext();
-            } while (n != null);
-        } 
-        else throw new NoSuchElementException();
-    }
-
     public void merge(int v1, int v2) {
         int p = parent[v1];
         int q = parent[v2];
+
+        int max =0, min =0;
 
         if (p != q) {
             int pSize = vertexSet.get(p).size();
             int qSize = vertexSet.get(q).size();
             
-            int max = Math.max(pSize, qSize);
-            int min = Math.min(pSize, qSize);
+            if (pSize > qSize) {
+                min = q;
+                max = p;
+            }
+            else {
+                min = p;
+                max = q;
+            }
+            //int max = Math.max(pSize, qSize);
+            //int min = Math.min(pSize, qSize);
 
             // Merge min with max
             MyLinkedList<Integer> minSet = vertexSet.get(min);
-            vertexSet.get(max).appendList(minSet);
-            shiftComponents(minSet, max);
+            vertexSet.get(max).appendList(vertexSet.get(min));
 
-            System.out.println("made it here");
+            // Shift components
+            Node<Integer> n = minSet.getFirst();
+            while (n != null) {
+                parent[n.getInfo()] = max;
+                n = n.getNext();
+            }
+            //shiftComponents(minSet, max);
         }
     }
-    
+
 }
