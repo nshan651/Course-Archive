@@ -2,12 +2,12 @@ package pset9;
 
 import java.util.*;
 
-public class ConnectedComponents {
+public class KruskalUnion {
     ArrayList<MyLinkedList<Integer>> vertexSet;
     int[] parent;
     static int numVertex;
 
-    public ConnectedComponents(int vertices) {
+    public KruskalUnion(int vertices) {
         numVertex = vertices;
         parent = new int[numVertex];
         vertexSet = new ArrayList<>(numVertex);
@@ -15,16 +15,15 @@ public class ConnectedComponents {
         // Init parent set and vertex set
         for (int i =0; i < numVertex; i++) {
             parent[i] = i;
-
             vertexSet.add(new MyLinkedList<Integer>());
             vertexSet.get(i).addFirst(i);
         }
     }
 
     public void merge(int v1, int v2) {
+        // Find components
         int p = parent[v1];
         int q = parent[v2];
-
         int max =0, min =0;
 
         if (p != q) {
@@ -34,13 +33,10 @@ public class ConnectedComponents {
             if (pSize > qSize) {
                 min = q;
                 max = p;
-            }
-            else {
+            } else {
                 min = p;
                 max = q;
             }
-            //int max = Math.max(pSize, qSize);
-            //int min = Math.min(pSize, qSize);
 
             // Merge min with max
             MyLinkedList<Integer> minSet = vertexSet.get(min);
@@ -52,7 +48,6 @@ public class ConnectedComponents {
                 parent[n.getInfo()] = max;
                 n = n.getNext();
             }
-            //shiftComponents(minSet, max);
         }
     }
 

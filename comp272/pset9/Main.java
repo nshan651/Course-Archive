@@ -5,73 +5,42 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Main {
-    
-    public static void merge(ArrayList<MyLinkedList<Integer>> vertexSet, int[] parent, int v1, int v2) {
-        int p = parent[v1];
-        int q = parent[v2];
 
-        int max =0, min =0;
-
-        if (p != q) {
-            int pSize = vertexSet.get(p).size();
-            int qSize = vertexSet.get(q).size();
-            
-            if (pSize > qSize) {
-                min = q;
-                max = p;
-            }
-            else {
-                min = p;
-                max = q;
-            }
-            //int max = Math.max(pSize, qSize);
-            //int min = Math.min(pSize, qSize);
-
-            // Merge min with max
-            MyLinkedList<Integer> minSet = vertexSet.get(min);
-            vertexSet.get(max).appendList(vertexSet.get(min));
-
-            // Shift components
-            Node<Integer> n = minSet.getFirst();
-            while (n != null) {
-                parent[n.getInfo()] = max;
-                n = n.getNext();
-            }
-        }
-    }
-
-    /**
-     * Krushal min spanning tree 
-     * @param weights
-     * @param edges
-     * @return ArrayList of edges in MST, as well as double 
-     * equal to sum of weights of the edges
-     */
-    public static ArrayList<WeightedEdge> krushal(PriorityQueue<WeightedEdge> que, int numVertex) {
+    /** Kruskal min spanning tree using union set */
+    public static ArrayList<WeightedEdge> kruskalUnion(PriorityQueue<WeightedEdge> que, int numVertex) {
         ArrayList<WeightedEdge> mst = new ArrayList<>(numVertex-1);
-
-        //ConnectedComponents comps = new ConnectedComponents(numVertex);
-        int[] parent = new int[numVertex];
-        ArrayList<MyLinkedList<Integer>> vertexSet = new ArrayList<>(numVertex);
-
-        // Init parent set and vertex set
-        for (int i =0; i < numVertex; i++) {
-            parent[i] = i;
-
-            vertexSet.add(new MyLinkedList<Integer>());
-            vertexSet.get(i).addFirst(i);
-        }
-
+        KruskalUnion ku = new KruskalUnion(numVertex);
+        
         while (mst.size() < numVertex-1) {
             // Shortest edge not yet considered
             WeightedEdge curr = que.poll();
 
-            int v1 = parent[curr.v1];
-            int v2 = parent[curr.v2];
+            int v1 = ku.parent[curr.v1];
+            int v2 = ku.parent[curr.v2];
 
             if (v1 != v2) {
                 mst.add(curr);
-                merge(vertexSet, parent, curr.v1, curr.v2);
+                ku.merge(curr.v1, curr.v2);
+            }
+        }
+        return mst;
+    }
+
+    /** Kruskal min spanning tree using tree compression */
+    public static ArrayList<WeightedEdge> kruskalCompression(PriorityQueue<WeightedEdge> que, int numVertex) {
+        ArrayList<WeightedEdge> mst = new ArrayList<>(numVertex-1);
+        KruskalTreeCompression ktc = new KruskalTreeCompression(numVertex);
+        
+        while (mst.size() < numVertex-1) {
+            // Shortest edge not yet considered
+            WeightedEdge curr = que.poll();
+
+            int v1 = ktc.find(curr.v1);
+            int v2 = ktc.find(curr.v2);
+
+            if (v1 != v2) {
+                mst.add(curr);
+                ktc.merge(v1, v2);
             }
         }
         return mst;
@@ -111,14 +80,15 @@ public class Main {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        // Read in edges and weights
+        // Timing variables
+        double start, end;
 
-        File edge_file= new File("./comp272/pset9/artist_edges.txt");
-        File weight_file= new File("./comp272/pset9/Weights.txt");
+        // Read in edges and weights
+        File edge_file = new File("./comp272/pset9/artist_edges.txt");
+        File weight_file = new File("./comp272/pset9/Weights.txt");
 
         // Get the max vertex size
         int max_size = findMax(edge_file, "\t");
-        //List<WeightedEdge> edgeList = new ArrayList<>(max_size+1);
         List<WeightedEdge> edgeList = new ArrayList<>();
 
         Scanner edgesc = new Scanner(edge_file);
@@ -135,13 +105,30 @@ public class Main {
         weightsc.close();
 
         PriorityQueue<WeightedEdge> que = new PriorityQueue<>(edgeList);
-        
-        ArrayList<WeightedEdge> mst = krushal(que, max_size+1);
-
-        // Print results
-        System.out.println("Max vertex label: " + (max_size+1));
+        PriorityQueue<WeightedEdge> que2 = new PriorityQueue<>(edgeList);
+        // Print general results
+        System.out.println("\nMax vertex label: " + (max_size+1));
         System.out.println("numer of edges: " + edgeList.size());
+
+        // Kruskal Union
+        start = System.currentTimeMillis();
+        ArrayList<WeightedEdge> ku = kruskalUnion(que, max_size+1);
+        end = System.currentTimeMillis();
+
+        System.out.println("\n----- Krushal Union ----- ");
+        System.out.println("Min weight of mst: " + minWeight(ku));
         System.out.println("edges considered for MST: " + (edgeList.size()-que.size()));
-        System.out.println("Min weight of mst: " + minWeight(mst));
+        System.out.println((end-start) + " ms");
+
+        // Kruskal Tree Compression
+        start = System.currentTimeMillis();
+        ArrayList<WeightedEdge> kst = kruskalCompression(que2, max_size+1);
+        end = System.currentTimeMillis();
+
+        System.out.println("\n----- Krushal Compressed Tree ----- ");
+        System.out.println("Min weight of mst: " + minWeight(kst));
+        System.out.println("edges considered for MST: " + (edgeList.size()-que.size()));
+        System.out.println((end-start) + " ms");
+        
     }
 }
