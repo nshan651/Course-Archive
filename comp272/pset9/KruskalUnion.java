@@ -20,6 +20,7 @@ public class KruskalUnion {
         }
     }
 
+    /** Find components; merge and shift accordingly */
     public void merge(int v1, int v2) {
         // Find components
         int p = parent[v1];

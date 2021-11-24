@@ -115,7 +115,7 @@ public class Main {
         ArrayList<WeightedEdge> ku = kruskalUnion(que, max_size+1);
         end = System.currentTimeMillis();
 
-        System.out.println("\n----- Krushal Union ----- ");
+        System.out.println("\n----- Kruskal Union ----- ");
         System.out.println("Min weight of mst: " + minWeight(ku));
         System.out.println("edges considered for MST: " + (edgeList.size()-que.size()));
         System.out.println((end-start) + " ms");
@@ -125,7 +125,7 @@ public class Main {
         ArrayList<WeightedEdge> kst = kruskalCompression(que2, max_size+1);
         end = System.currentTimeMillis();
 
-        System.out.println("\n----- Krushal Compressed Tree ----- ");
+        System.out.println("\n----- Kruskal Compressed Tree ----- ");
         System.out.println("Min weight of mst: " + minWeight(kst));
         System.out.println("edges considered for MST: " + (edgeList.size()-que.size()));
         System.out.println((end-start) + " ms");

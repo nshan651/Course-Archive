@@ -22,11 +22,7 @@ public class KruskalTreeCompression {
         }
     }
 
-    /**
-     * Finds the root of the set label containing x
-     * @param x
-     * @return Root of set label
-     */
+    /** Finds the root of the set label containing x */
     public int find(int x) {
         int r =x, i =x;
         while (parent[r] != r)
@@ -40,6 +36,7 @@ public class KruskalTreeCompression {
         return r;
     }
 
+    /** Merge sets a and b; assume a != b */
     public void merge(int a, int b) {
         if (height[a] == height[b]) { 
             height[a]++;
