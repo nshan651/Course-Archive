@@ -1,12 +1,12 @@
 package pset10.src;
 import java.util.*;
 
-public class HashedDirectedGraph  {
+public class ReducedGraph  {
     // HashMap where key k is the list of finishing positions and value is DNodeList
     HashMap<Integer, DirectedNodeList> hash;
     int numVertex, numEdges;
     
-    public HashedDirectedGraph(){
+    public ReducedGraph(){
         hash = new HashMap<>();
         numVertex = 0;
         numEdges = 0;
@@ -16,7 +16,7 @@ public class HashedDirectedGraph  {
      * in hash, key is leader k and value is DirectedNodeList
      * @param n
      */
-    public HashedDirectedGraph(int n){
+    public ReducedGraph(int n){
         hash = new HashMap<>(n);
         numVertex = n;
         numEdges = 0;

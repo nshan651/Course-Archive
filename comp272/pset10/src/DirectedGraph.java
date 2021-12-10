@@ -165,7 +165,7 @@ public class DirectedGraph  {
         dg.depthFirstTraversal();
 
         /* Reduced graph */ 
-        HashedDirectedGraph hdg = new HashedDirectedGraph(dg.compSize);
+        ReducedGraph hdg = new ReducedGraph(dg.compSize);
         Iterator<Integer> iterEdge = dg.comps.keySet().iterator();
 
         // Iterate through the SCC keyset and add vertices
