@@ -141,7 +141,7 @@ public class DirectedGraph  {
         /* Kosarju */
 
         // Read in directed edge list
-        File dirEdges = new File("/home/nick/github_repos/Course-Archive/comp272/pset10/Slashdot0902.txt");
+        File dirEdges = new File("/home/nick/git/Course-Archive/comp272/pset10/Slashdot0902.txt");
         int numVertex = 0;
 
         // Find the max size

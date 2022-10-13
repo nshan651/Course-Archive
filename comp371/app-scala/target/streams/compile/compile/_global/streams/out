@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/home/nick/git/Course-Archive/comp371/app-scala/App.scala:5:36: value length is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m    val suma = incoming.map(s => s.length).sum[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/nick/git/Course-Archive/comp371/app-scala/App.scala:5:44: value sum is not a member of Array[Nothing][0m
+[0m[[0m[31merror[0m] [0m[0m    val suma = incoming.map(s => s.length).sum[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
