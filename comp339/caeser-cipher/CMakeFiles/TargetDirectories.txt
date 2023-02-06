@@ -1,0 +1,4 @@
+/home/nick/git/course-archive/comp339/caeser-cipher/CMakeFiles/main.dir
+/home/nick/git/course-archive/comp339/caeser-cipher/CMakeFiles/copy-compile-commands.dir
+/home/nick/git/course-archive/comp339/caeser-cipher/CMakeFiles/edit_cache.dir
+/home/nick/git/course-archive/comp339/caeser-cipher/CMakeFiles/rebuild_cache.dir
