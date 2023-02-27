@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/nanol-parser-scala_3-0.1-sources.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	size.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/src/main/scala/size.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	NanoElement.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/src/main/scala/NanoElement.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	NanoParser.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/src/main/scala/NanoParser.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Calculator.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/src/main/scala/Calculator.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

@@ -1,0 +1,23 @@
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation to /home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/api...[0m
+[0m[[0m[0mdebug[0m] [0m[0mReturning already retrieved and compiled bridge: /home/nick/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-sbt-bridge/3.2.1/scala3-sbt-bridge-3.2.1.jar.[0m
+[0m[[0m[0mdebug[0m] [0m[0mCalling Dottydoc with arguments  (ScaladocInterface):[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-d[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/api[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-deprecation[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-feature[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-unchecked[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-Yexplicit-nulls[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-Ysafe-init[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-language:strictEquality[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-project[0m
+[0m[[0m[0mdebug[0m] [0m[0m	nanol-parser-scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.2.1/scala3-library_3-3.2.1.jar:/home/nick/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.10/scala-library-2.13.10.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_3/2.1.1/scala-parser-combinators_3-2.1.1.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/classes/nanol/Calculator.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/classes/nanol/NanoElement.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/classes/nanol/NanoParser.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/home/nick/git/Course-Archive/comp371/test-2-programming-portion-nshan651/target/scala-3.2.1/classes/nanol/size.tasty[0m
+[0m[[0m[0minfo[0m] [0m[0mSkipping unused scalacOptions: -Yexplicit-nulls, -Ysafe-init[0m
+[0m[[0m[0minfo[0m] [0m[0mMain Scala API documentation successful.[0m

@@ -1,0 +1,11 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: /home/nick/git/Course-Archive/comp371/combinator-parsing/Main.scala:4:16 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m4 |[0m    [33mval[0m [36mp[0m = [33mnew[0m [35mJavaTokenParsers[0m() {}[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m                ^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m                Not found: type JavaTokenParsers[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: /home/nick/git/Course-Archive/comp371/combinator-parsing/Main.scala:5:14 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m5 |[0m    [33mval[0m [36mh[0m = p.literal([31m"hello"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m            ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m            value literal is not a member of Object[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
