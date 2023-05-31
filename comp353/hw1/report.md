@@ -17,7 +17,8 @@
 
 ```sql
 /* Question 1 */
-select co.songcode,s.songTitle, tracknumber from composedof co ,song s 
+select co.songcode,s.songTitle, tracknumber 
+from composedof co ,song s 
 where s.songcode = co.songcode and cdcode = (
     select cdcode from topcds where year = 2003 and rating = 1
     )
@@ -105,4 +106,18 @@ where m.groupcode = c.groupcode and c.labelid = r.labelid and r.labelName = 'Dis
 group by m.groupcode, m.groupName
 order by groupname
 ```
-![q6-out](q6-out.png)
+
+```sql
+select mg.groupCode, mg.groupName 
+from musicalGroup mg, recordingLabel rl, cd
+where mg.groupCode = cd.groupCode
+     and cd.labelID = rl.labelID
+      and rl.location = 'Detroit'
+group by mg.groupCode, mg.groupName
+having count(*) = (
+    select count(*) 
+    from recordingLabel 
+    where location = 'Detroit'
+    )
+order by mg.groupName
+```

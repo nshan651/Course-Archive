@@ -1,51 +1,69 @@
-/* Question 1 
-select co.songcode,s.songTitle, tracknumber from composedof co ,song s where s.songcode = co.songcode and cdcode = (
-select cdcode from topcds where year = 2003 and rating = 1)
-order by tracknumber
-*/
+/* Question 1 */ 
 
-/* Question 2
-select mg.groupcode,groupname,count(*) as numberOfTop10CDs
-from musicalgroup mg, cd c, topcds tc
-where mg.groupcode = c.groupcode and c.cdcode = tc.cdcode and tc.rating <= 10
-group by mg.groupcode, mg.groupname
-order by numberOfTop10CDs desc
-*/
+select co.songCode, s.songTitle, trackNumber  
+from composedOf co , song s  
+where s.songCode = co.songCode and cdCode = ( 	-- Nested query to pull #1 rated CD in 2003 
+ select cdCode from topCDs where year = 2003 and rating = 1 
+ ) 
+order by trackNumber 
 
-/* Question 3
-select c.year, max(subquery.numberoftracks) as maxNumber,min(subquery.numberoftracks) as minNumber,avg(subquery.numberoftracks) as avgNumber
-from cd c,
-(select cdcode, count(*) as numberoftracks
-from composedof
-group by cdcode) subquery
-where year >= 2000 and c.cdcode = subquery.cdcode
-group by c.year
-order by c.year
-*/
+/* Question 2 */ 
+ select mg.groupCode, groupName, count(*) as numberOfTop10CDs 
+ from musicalGroup mg, topCDs tc, cd 
+-- Join statement relates musicGroup and topCDs through mutual CD entity 
+ where mg.groupCode = cd.groupCode and cd.cdCode = tc.cdCode and tc.rating <= 10 
+ group by mg.groupCode, mg.groupName 
+ order by numberOfTop10CDs desc  -- Default is ascending, so we specify order by as desc
 
-/* Question 4
-select mg.groupcode,mg.groupname, cd.labelid,rl.labelname,sum(cd.numbersold) as totalNumberSold from musicalgroup mg, cd, recordinglabel rl
-where mg.groupcode = cd.groupcode and cd.labelid = rl.labelid
-group by mg.groupcode,mg.groupname, cd.labelid,rl.labelname
-order by totalNumberSold DESC
-*/
+/* Question 3 */ 
 
-/* Question 5
-select distinct wr.artistid, art.firstname,art.lastname,art.yearborn from artist art,writtenby wr, member mb, topsongs ts where art.artistid = wr.artistid
-and ts.songcode = wr.songcode
-and ts.rating <=5 and not exists (select * from member where wr.artistid = member.artistid and member.todate = 0)
-*/
+-- Outer select statement gathers aggregate stats based off inner count of tracks in composedOf 
+ select c.year, max(subquery.numberOfTracks) as maxNumber, 
+ min(subquery.numberOfTracks) as minNumber, 
+ avg(subquery.numberOfTracks) as avgNumber 
+ from cd c, 
+-- Get the number of tracks first, then outer query handles the year constraint 
+ (select cdCode, count(*) as numberOfTracks 
+ from composedOf 
+ group by cdCode) subquery 
+ -- Year is found in CD table, so we specify it in where condition and join CD with subquery 
+ where year >= 2000 and c.cdCode = subquery.cdCode 
+ group by c.year 
+ order by c.year
 
-/* Question 6
-select m.groupCode, m.groupName
-from musicalgroup m, cd c, recordinglabel r
-where m.groupcode = c.groupcode and c.labelid = r.labelid and r.labelName = 'Country Club'group by m.groupcode, m.groupName
-intersect
-select m.groupCode, m.groupName
-from musicalgroup m, cd c, recordinglabel r
-where m.groupcode = c.groupcode and c.labelid = r.labelid and r.labelName = 'Gray Dot Records'group by m.groupcode, m.groupName
-intersect
-select m.groupCode, m.groupName
-from musicalgroup m, cd c, recordinglabel r
-where m.groupcode = c.groupcode and c.labelid = r.labelid and r.labelName = 'Disney Records'group by m.groupcode, m.groupName
-*/
+ /* Question 4 */ 
+ select mg.groupCode, mg.groupName, cd.labelID,  
+rl.labelName, sum(cd.numberSold) as totalNumberSold  
+-- To get the number of CDs sold by a group with a recording label, we need group, recording, and CD 
+from musicalgGoup mg, recordingLabel rl, cd 
+ where mg.groupCode = cd.groupCode and cd.labelID = rl.labelID 
+ group by mg.groupCode, mg.groupName, cd.labelID, rl.labelName 
+ order by totalNumberSold desc
+
+ /* Question 5 */ 
+ select distinct wr.artistID, art.firstName, art.lastName, art.yearBorn  
+from artist art, writtenBy wr, member mb, topSongs ts  
+where art.artistID = wr.artistID 
+ and ts.songCode = wr.songCode 
+-- We find where toDate is 0 (member is current) and take the inverse (every non-zero toDate member) 
+ and ts.rating <=5 and not exists (select *  
+from member  
+where wr.artistid = member.artistid and member.toDate = 0 
+ )
+
+ /* Question 6 */ 
+
+select mg.groupCode, mg.groupName  
+from musicalGroup mg, recordingLabel rl, cd 
+ where mg.groupCode = cd.groupCode 
+ and cd.labelID = rl.labelID 
+ and rl.location = 'Detroit' 
+ group by mg.groupCode, mg.groupName 
+/* Having clause compares number of groups recording with a label in Detroit with the count of Detroit-based labels*/ 
+ having count(*) = ( 
+-- Counts number of Detroit-based recording labels 
+          select count(*)  
+	      from recordingLabel  
+         where location = 'Detroit' 
+ ) 
+ order by mg.groupName

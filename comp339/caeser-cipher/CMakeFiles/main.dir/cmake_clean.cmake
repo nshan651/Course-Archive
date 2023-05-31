@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/src/decoder.cc.o"
+  "CMakeFiles/main.dir/src/decoder.cc.o.d"
+  "CMakeFiles/main.dir/src/encoder.cc.o"
+  "CMakeFiles/main.dir/src/encoder.cc.o.d"
   "CMakeFiles/main.dir/src/main.cc.o"
   "CMakeFiles/main.dir/src/main.cc.o.d"
   "main"

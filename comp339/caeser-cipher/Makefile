@@ -142,6 +142,54 @@ copy-compile-commands/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/copy-compile-commands.dir/build.make CMakeFiles/copy-compile-commands.dir/build
 .PHONY : copy-compile-commands/fast
 
+src/decoder.o: src/decoder.cc.o
+.PHONY : src/decoder.o
+
+# target to build an object file
+src/decoder.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/decoder.cc.o
+.PHONY : src/decoder.cc.o
+
+src/decoder.i: src/decoder.cc.i
+.PHONY : src/decoder.i
+
+# target to preprocess a source file
+src/decoder.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/decoder.cc.i
+.PHONY : src/decoder.cc.i
+
+src/decoder.s: src/decoder.cc.s
+.PHONY : src/decoder.s
+
+# target to generate assembly for a file
+src/decoder.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/decoder.cc.s
+.PHONY : src/decoder.cc.s
+
+src/encoder.o: src/encoder.cc.o
+.PHONY : src/encoder.o
+
+# target to build an object file
+src/encoder.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/encoder.cc.o
+.PHONY : src/encoder.cc.o
+
+src/encoder.i: src/encoder.cc.i
+.PHONY : src/encoder.i
+
+# target to preprocess a source file
+src/encoder.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/encoder.cc.i
+.PHONY : src/encoder.cc.i
+
+src/encoder.s: src/encoder.cc.s
+.PHONY : src/encoder.s
+
+# target to generate assembly for a file
+src/encoder.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/encoder.cc.s
+.PHONY : src/encoder.cc.s
+
 src/main.o: src/main.cc.o
 .PHONY : src/main.o
 
@@ -176,6 +224,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... copy-compile-commands"
 	@echo "... main"
+	@echo "... src/decoder.o"
+	@echo "... src/decoder.i"
+	@echo "... src/decoder.s"
+	@echo "... src/encoder.o"
+	@echo "... src/encoder.i"
+	@echo "... src/encoder.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

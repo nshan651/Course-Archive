@@ -1,6 +1,16 @@
 [
 {
   "directory": "/home/nick/git/course-archive/comp339/caeser-cipher",
+  "command": "clang++  -I/home/nick/git/course-archive/comp339/caeser-cipher/include -isystem /usr/include/c++/12.2.1 -isystem /usr/include/c++/12.2.1/x86_64-pc-linux-gnu -isystem /usr/include/c++/12.2.1/backward -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -isystem /usr/local/include -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -isystem /usr/include  -o CMakeFiles/main.dir/src/decoder.cc.o -c /home/nick/git/course-archive/comp339/caeser-cipher/src/decoder.cc",
+  "file": "/home/nick/git/course-archive/comp339/caeser-cipher/src/decoder.cc"
+},
+{
+  "directory": "/home/nick/git/course-archive/comp339/caeser-cipher",
+  "command": "clang++  -I/home/nick/git/course-archive/comp339/caeser-cipher/include -isystem /usr/include/c++/12.2.1 -isystem /usr/include/c++/12.2.1/x86_64-pc-linux-gnu -isystem /usr/include/c++/12.2.1/backward -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -isystem /usr/local/include -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -isystem /usr/include  -o CMakeFiles/main.dir/src/encoder.cc.o -c /home/nick/git/course-archive/comp339/caeser-cipher/src/encoder.cc",
+  "file": "/home/nick/git/course-archive/comp339/caeser-cipher/src/encoder.cc"
+},
+{
+  "directory": "/home/nick/git/course-archive/comp339/caeser-cipher",
   "command": "clang++  -I/home/nick/git/course-archive/comp339/caeser-cipher/include -isystem /usr/include/c++/12.2.1 -isystem /usr/include/c++/12.2.1/x86_64-pc-linux-gnu -isystem /usr/include/c++/12.2.1/backward -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include -isystem /usr/local/include -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.1/include-fixed -isystem /usr/include  -o CMakeFiles/main.dir/src/main.cc.o -c /home/nick/git/course-archive/comp339/caeser-cipher/src/main.cc",
   "file": "/home/nick/git/course-archive/comp339/caeser-cipher/src/main.cc"
 }
